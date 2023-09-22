@@ -22,12 +22,14 @@ const Player = () => {
     useEffect(()=>{
         console.log("Spring으로 요청")
         let _ip = "13.125.253.10"
-        let url = `http://${_ip}:8090/SpringBoot2/PlayerList.do`;
+        let url = `http://13.125.253.10:8090/SpringBoot2/PlayerList.do`;
         axios
         .post(url, {responseType : 'blob'})
         .then((res)=>{
             console.log(res.data);
             setList(res.data);
+        }).catch(err=>{
+            console.log(err);
         })
     }, [])
   return (
